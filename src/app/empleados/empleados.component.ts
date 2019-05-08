@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'empleados',
+    selector: 'cap_empleados',
     templateUrl: './empleados.component.html',
     styleUrls: ['./empleados.component.scss']
 })
@@ -19,10 +19,16 @@ export class empleados {
         let empleado: Empleado;
 
         empleado = new Empleado(nombre, apellidos, categoria, rol);
-        
-        this.empleados.push(empleado);
+        if(this.comprobar_vacio(nombre, apellidos)){
+            this.empleados.push(empleado);
+        }
+    }
 
-
+    comprobar_vacio(nombre:String, apellidos: String){
+        if(nombre == '' || apellidos == ''){
+            return false;
+        }
+        return true;
     }
 
     isEmpty() {
@@ -45,12 +51,12 @@ class Empleado {
         this.rol = rol;
     }
 
-    nombreCompleto() {
+    nombre_completo() {
         return this.nombre + ' ' + this.apellidos;
     }
 
-    mostrarInfo() {
-        return 'Categoria: ' + this.categoria + ', Rol: ' + this.rol;
+    detalles() {
+        return 'Categoria: ' + this.categoria + ' ,Rol: ' + this.rol;
     }
 
 }

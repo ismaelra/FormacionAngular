@@ -1,32 +1,36 @@
-<form id="formulario" (submit)='$event.preventDefault(); addEmpleado(nombre.value, apellidos.value, categoria.value, rol.value)'>
+<form id="formulario"
+    (submit)='$event.preventDefault(); addEmpleado(nombre.value, apellidos.value, categoria.value, rol.value); 
+    nombre.value=""; apellidos.value=""; categoria.value=""; rol.value=""'>
+
     <table>
+        <th id="titulo">Nuevo empleado</th>
         <tr>
             <td><label for="nombre">Nombre</label></td>
             <td><input type="text" #nombre /></td>
         </tr>
         <tr>
             <td><label for="apellidos">Apellidos</label></td>
-            <td><input type="text" #apellidos/></td>
+            <td><input type="text" #apellidos /></td>
         </tr>
         <tr>
-            <td><label for="categoria">Categoria</label></td>
-            <td><input type="text" #categoria/></td>
+            <td><label for="categoria">Categoría</label></td>
+            <td><input type="text" #categoria /></td>
         </tr>
         <tr>
             <td><label for="rol">Rol</label></td>
-            <td> <input type="text" #rol /></td>
+            <td><input type="text" #rol /></td>
         </tr>
-        <tr>
-            <td colspan="2"><button id="enviar" type="submit">Enviar</button></td>
-        </tr>
-
+        <button class="btn btn-primary" type="submit">Añadir</button>
     </table>
 </form>
 
-<div id="equipo" *ngIf="!isEmpty()">
-    <div class="empleado" *ngFor="let empleado of empleados">
-        <h1>{{empleado.nombreCompleto()}}</h1>
-        <p>{{empleado.mostrarInfo()}}</p>
+<div id="lista_integrantes" *ngIf="!isEmpty()">
+    <div id="titulo_lista">Lista de integrantes</div>
+
+    <div id="empleado" class="card text-white bg-primary mb-3" *ngFor="let empleado of empleados">
+        <div class="card-body">
+            <h5 class="card-title">{{empleado.nombre_completo()}}</h5>
+            <p class="card-text">{{empleado.detalles()}}</p>
+        </div>
     </div>
 </div>
-
