@@ -1,0 +1,32 @@
+<form id="formulario" (submit)='$event.preventDefault(); addEmpleado(nombre.value, apellidos.value, categoria.value, rol.value)'>
+    <table>
+        <tr>
+            <td><label for="nombre">Nombre</label></td>
+            <td><input type="text" #nombre /></td>
+        </tr>
+        <tr>
+            <td><label for="apellidos">Apellidos</label></td>
+            <td><input type="text" #apellidos/></td>
+        </tr>
+        <tr>
+            <td><label for="categoria">Categoria</label></td>
+            <td><input type="text" #categoria/></td>
+        </tr>
+        <tr>
+            <td><label for="rol">Rol</label></td>
+            <td> <input type="text" #rol /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><button id="enviar" type="submit">Enviar</button></td>
+        </tr>
+
+    </table>
+</form>
+
+<div id="equipo" *ngIf="!isEmpty()">
+    <div class="empleado" *ngFor="let empleado of empleados">
+        <h1>{{empleado.nombreCompleto()}}</h1>
+        <p>{{empleado.mostrarInfo()}}</p>
+    </div>
+</div>
+
