@@ -1,5 +1,4 @@
-<form id="formulario"
-    (submit)='$event.preventDefault(); addEmpleado(nombre.value, apellidos.value, categoria.value, rol.value); 
+<form id="formulario" (submit)='$event.preventDefault(); addEmpleado(nombre.value, apellidos.value, categoria.value, rol.value); 
     nombre.value=""; apellidos.value=""; categoria.value=""; rol.value=""'>
 
     <table>
@@ -27,9 +26,10 @@
 <div id="lista_integrantes" *ngIf="!isEmpty()">
     <div id="titulo_lista">Lista de integrantes</div>
 
-    <div id="empleado" class="card text-white bg-primary mb-3" *ngFor="let empleado of empleados">
+    <div id="empleado" class="card text-white bg-info mb-3" style="max-width: 18rem;"
+        *ngFor="let empleado of empleados">
+        <div class="card-header">{{empleado.nombre_completo()}}</div>
         <div class="card-body">
-            <h5 class="card-title">{{empleado.nombre_completo()}}</h5>
             <p class="card-text">{{empleado.detalles()}}</p>
         </div>
     </div>

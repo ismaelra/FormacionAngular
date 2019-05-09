@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-// import { MatSnackBarModule } from '@angular/material';
 
 const routes: Routes = [];
 

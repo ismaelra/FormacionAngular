@@ -39,10 +39,10 @@ export class empleados {
 
 class Empleado {
 
-    nombre: String;
-    apellidos: String;
-    categoria: String;
-    rol: String;
+    public nombre: String;
+    public apellidos: String;
+    public categoria: String;
+    public rol: String;
 
     constructor(nombre: String, apellidos: String, categoria: String, rol: String) {
         this.nombre = nombre;
@@ -56,7 +56,7 @@ class Empleado {
     }
 
     detalles() {
-        return 'Categoria: ' + this.categoria + ' ,Rol: ' + this.rol;
+        return "Categoria: " + this.categoria + ", Rol: " + this.rol;
     }
 
 }
