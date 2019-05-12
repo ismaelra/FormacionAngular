@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'cap_empleados',
@@ -21,7 +21,7 @@ export class empleados {
         empleado = new Empleado(nombre, apellidos, categoria, rol);
         if(this.comprobar_vacio(nombre, apellidos)){
             this.empleados.push(empleado);
-        }
+        } 
     }
 
     comprobar_vacio(nombre:String, apellidos: String){
